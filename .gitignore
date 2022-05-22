@@ -1,0 +1,17 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.yaml
+*.log
+*.tar
+*.tar.gz
+*.gz
+*.zip
+*.7z
+
+.idea
+/build/
+/logs/
