@@ -1,3 +1,3 @@
-module github.com/leor-w/injector
+module github.com/leor-w/inject
 
 go 1.18

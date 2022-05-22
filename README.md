@@ -3,5 +3,5 @@
 
 # 使用
 ```shell
-go get -u github.com/leor-w/injector
+go get -u github.com/leor-w/inject
 ```

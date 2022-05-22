@@ -25,8 +25,9 @@ type Injector interface {
 }
 
 type Applicator interface {
-	// Apply 将 injector 中存储的对象注入到传入的对象中
+	// Apply 将 inject 中存储的对象注入到传入的对象中
 	Apply(interface{}) error
+	ApplyAll() error
 }
 
 type Invoker interface {
@@ -70,7 +71,20 @@ func New() Injector {
 }
 
 func (inj *injector) Apply(val interface{}) error {
-	v := reflect.ValueOf(val)
+	return inj.apply(reflect.ValueOf(val))
+}
+
+func (inj *injector) ApplyAll() error {
+	var err error
+	for _, v := range inj.values {
+		if err = inj.apply(v); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func (inj *injector) apply(v reflect.Value) error {
 	for v.Kind() == reflect.Ptr {
 		v = v.Elem()
 	}

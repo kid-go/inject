@@ -41,7 +41,7 @@ func TestInject(t *testing.T) {
 	auth := NewAddress("广东", "深圳", "宝安", "新安")
 	injector.Map(&AuthCode{Code: "123456"})
 	injector.Map(auth)
-	//injector.Invoke(func(authCode *AuthCode, address *Address) {
+	//inject.Invoke(func(authCode *AuthCode, address *Address) {
 	//	user.AuthCoed = authCode
 	//	user.Address = address
 	//})
